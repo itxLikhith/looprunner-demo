@@ -6,8 +6,12 @@ import argparse
 
 
 def apply_discount(price: float, discount_pct: float) -> float:
-    """Apply a percentage discount to a price."""
-    return price * (1 - discount_pct)
+    """Apply a percentage discount to a price.
+
+    ``discount_pct`` is a percentage (20 means 20% off), so it is converted
+    to a fraction before being applied.
+    """
+    return price * (1 - discount_pct / 100)
 
 
 def format_price(amount: float) -> str:
